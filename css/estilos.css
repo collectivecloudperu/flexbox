@@ -4,35 +4,45 @@
    color: #877CB1;
   }
 
+ h1 {
+  text-align: center;
+  color: #4F4F52;
+ }
+
   #contenedor {
-    min-height: 800px;
+    min-height: 800px; /* Para mi contendor del contenido principal le puedo dar un height: 100% y se adaptara también el alto*/
     margin: 0px;
     padding: 0px;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row;
-    flex-flow: row;
+    display: -webkit-flex; /* Le indico que detecte automáticamente la longitud de la pagina */
+    display: flex; /* Inicio la propiedad Flexbox con */
+    -webkit-flex-flow: row; /* Le indico que las columnas se muestren una fila debajo de otra cuando la pantalla del dipositivo sea de menos ancho */
+    flex-flow: row; /* Defino la direccion del bloque es decir con se muestra en fila(row) una debajo de otra cuando la pantalla del dipositivo sea de menos ancho */
    }
  
   #contenedor > .contenido_medio {
+    min-height: 800px;
     margin: 4px;
     padding: 5px;
     border: 9px solid #CCC5C5;
     background-color: #E8F0F1;
-    -webkit-flex: 3 1 60%;
-    flex: 3 1 60%;
-    -webkit-order: 2;
-    order: 2;
+
+    -webkit-flex: 3 1 60%; /* Llenaré 3/3 (3 tercios) del ancho que quede  y también especifico el ancho del bloque, para navegadores anteriores*/
+    flex: 3 1 60%; /* Llenaré 3/3 (3 tercios) del ancho que quede  y también especifico el ancho del bloque, para los Nuevos navegadores */
+    -webkit-order: 2; /* Le indico el orden de este columna, es decir la columna de la izquierda es la 1, la que sigue esta la 2 y la de la derecha es la columna 3 */
+    order: 2; /* Le indico el orden de este columna, igual que -webkit-order, para otras versiones de navegadores */  
     display: -webkit-flex;
     display: flex;   
-    flex-direction: row;
+    flex-direction: row; /* Establezco la dirección de los elementos flexibles que hay adentro de este elemento, en orden inverso */
+    
+    /* Centro vertical y horizontalmente todo los elementos dentro de este contenedor*/
     -webkit-align-items: center;
-    align-items: center;
+    align-items: center; 
     -webkit-justify-content: center;
     justify-content: center; 
    }
   
   #contenedor > .lado_izquierdo {
+    min-height: 800px;
     margin: 4px;
     padding: 5px;
     border: 9px solid #CCC5C5;
@@ -51,6 +61,7 @@
    }
   
   #contenedor > .lado_derecho{
+    min-height: 800px;
     margin: 4px;
     padding: 5px;
     border: 9px solid #CCC5C5;
@@ -69,6 +80,7 @@
    }
  
   header, footer {
+    height: 100px;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: row;
@@ -87,6 +99,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
+    color: #000;
    }
 
    .credito a:link{
@@ -94,20 +107,26 @@
     text-decoration: none;
    }
 
+   .credito a:hover{
+    color: #317DA2;
+    text-decoration: underline;
+   }
+
    .credito a:visited{
     color: #317DA2;
     text-decoration: none;
    }
  
+  /* Cuando tenga el ancho de 640 px, que se visualize en una sola columna los bloques de mi Pagina Wéb  */
   @media all and (max-width: 640px) {
   
    #contenedor {
     -webkit-flex-flow: column;
-            flex-direction: column;
+            flex-direction: column; /* Que se visualize en una sola columna los bloques de mi Pagina Wéb */
    }
 
    #contenedor > contenido_medio, #contenedor > lado_izquierdo, #contenedor > aside {
-    /* Return them to document order */
+    /* Retorno el orden del documento */
     -webkit-order: 0;
             order: 0;
    }
